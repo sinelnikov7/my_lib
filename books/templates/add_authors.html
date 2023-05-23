@@ -1,0 +1,36 @@
+{% extends 'main.html' %}
+{% block title %}Добавление автора{% endblock %}
+{% block content %}
+
+<div id="navigation">
+    <div>
+        <p><a href="{% url 'book:add_genres' %}">Добавить жанр</a></p>
+        <p><a href="{% url 'book:add_authors' %}">Добавить автора</a></p>
+        <p><a href="{% url 'book:add_book' %}">Добавить книгу</a></p>
+    </div>
+    <div id="book_detail">
+        <div>
+            <h1>Добовление автора</h1>
+            <form action="" method="POST" enctype="multipart/form-data" id="genre">
+                {% csrf_token %}
+                {{ formAuthors.as_p }}
+                <button>Создать</button>
+            </form>
+        </div>
+        <br>
+        <h1>Все авторы</h1>
+        <div>
+            {% for i in author %}
+            <p>Имя: {{ i.firstName}}</p>
+            <p>Фамилия: {{ i.lastName}}</p>
+            <strong>Фотографии автора:</strong><br>
+            {% for n in foto %}
+            {% if n.authors_id == i.id %}
+            <img src="{{ n.foto.url }}" alt="Ошибка загрузки" width="200" height="100">
+            {% endif %}
+            {% endfor %}
+            {% endfor %}
+        </div>
+    </div></div>
+
+    {% endblock %}

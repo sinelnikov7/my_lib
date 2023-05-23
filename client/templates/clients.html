@@ -1,0 +1,35 @@
+{% extends 'main.html' %}
+{% block title %}Читатели{% endblock %}
+{% block content %}
+
+<div id="all_clients">
+<h1>Список читателей:</h1>
+<table class="table_sort">
+    <thead>
+    <tr>
+        <td>Имя</td>
+        <td>Фамилия</td>
+        <td>Отчество</td>
+        <td>Номер паспорта</td>
+        <td>Дата рождения</td>
+        <td>Email</td>
+        <td>Адресс</td>
+    </tr>
+    </thead>
+    <tbody>
+    {% for i in clients %}
+    <tr>
+    <th>{{ i.name }}</th>
+    <th>{{ i.sur_name }}</th>
+    <th>{{ i.last_name }}</th>
+    <th>{{ i.passport_number }}</th>
+    <th>{{ i.date }}</th>
+    <th>{{ i.email }}</th>
+    <th>{{ i.adres }}</th>
+  </tr>
+    {% endfor %}
+    <tbody>
+</table>
+</div>
+
+{% endblock %}

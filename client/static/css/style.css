@@ -1,0 +1,7 @@
+#reg_form {
+    width:400px;
+}
+
+#reg_form > p > input {
+    float:right;
+}

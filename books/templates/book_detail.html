@@ -1,0 +1,42 @@
+{% extends 'main.html' %}
+{% block title %}Книги{% endblock %}
+{% block content %}
+
+<div id="navigation">
+    <div>
+        <p><a href="{% url 'book:add_genres' %}">Добавить жанр</a></p>
+        <p><a href="{% url 'book:add_authors' %}">Добавить автора</a></p>
+        <p><a href="{% url 'book:add_book' %}">Добавить книгу</a></p>
+    </div>
+    <div id="book_detail">
+        <h1>Описание книги:</h1>
+        <p>Название по русски:{{ book.name_r }}</p>
+        <p>Название оригинала:{{ book.name_o }}</p>
+        <p>Цена книги:{{ book.price }}</p>
+        <p>Доступное количество:{{ book.count }}</p>
+        <p>Цена за день:{{ book.price_for_day }}</p>
+        <p>Год выхода книги:{{ book.year_of_made }}</p>
+        <p>Количество страниц:{{ book.count_of_pages }}</p>
+        <strong>Жанры:</strong>
+        {% for genre in book.genres.all %}
+        <p>{{ genre.genre }}</p>
+        {% endfor %}
+        <strong>Авторы:</strong>
+        {% for autor in book.authors.all %}
+        <p>{{ autor.firstName }} {{ autor.lastName }}</p>
+        <strong>Фото автора:</strong>
+        <br>
+        {% for image in autor.authors.all %}
+        <img src="{{ image.foto.url }}" alt="Ошибка загрузки" width="120" height="100">
+        {% endfor %}
+        {% endfor %}
+        <br>
+        <strong>Фото книги:</strong>
+        <br>
+        {% for image in book.fotobook.all %}
+        <img src="{{ image.foto.url }}" alt="Ошибка загрузки" width="120" height="100">
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

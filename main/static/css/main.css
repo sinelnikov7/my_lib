@@ -1,0 +1,350 @@
+#header{
+   /*justify-content: space-between;*/
+    align-items:center;
+    width: 100%;
+
+    background: #091a20e0;
+    display:flex;
+}
+
+body{
+    background-image: url(https://s1.1zoom.ru/big3/911/Book_Library_464877.jpg);
+    background-attachment:fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin:0;
+    padding:0;
+}
+
+
+.logo{
+    width: 100px;
+    height: 100px;
+}
+
+
+a{
+  text-decoration: none;
+  color:white;
+  font-size: 24px;
+}
+
+#a_detail{
+  text-decoration: none;
+  color:white;
+  font-size: 16px;
+}
+
+#a_detail:hover {
+    color: #8af4ff; /* Цвет ссылки при наведении на нее курсора мыши */
+    text-decoration: underline; /* Добавляем подчеркивание */
+   }
+
+#htext{
+    display:flex;
+    margin-left:50px;
+}
+
+.ha{
+    display:flex;
+    margin-left:20px;
+}
+
+a:hover {
+    color: #8af4ff; /* Цвет ссылки при наведении на нее курсора мыши */
+    text-decoration: underline; /* Добавляем подчеркивание */
+   }
+
+
+
+#disc1{
+    width:35%;
+    padding:50px;
+    color:white;
+    font-size:25px;
+    background: #2f3e3e94;
+}
+
+#disc2{
+    width:35%;
+    color:white;
+    padding:50px;
+    font-size:25px;
+    background: #2f3e3e94;
+}
+
+
+#disc{
+margin-top:50px;
+width: 100%;
+display:flex;
+justify-content: space-around;
+}
+
+input[type="text"],input[type="number"],input[type="password"],input[type="submit"] {
+  width:200px;
+  padding:20px;
+  box-sizing: border-box;
+  border-radius:7px;
+  box-shadow:0 0 15px 4px #241624;
+  padding:5px;
+  margin-left:10px;
+}
+
+input[type="submit"], input[type="reset"], input[type="email"] {
+  width:120px;
+  padding:20px;
+  box-sizing: border-box;
+  border-radius:7px;
+  box-shadow:0 0 15px 4px #241624;
+  padding:5px;
+  margin-left:10px;
+}
+
+#genre{
+font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+font-size: 22px;
+letter-spacing: -0.2px;
+word-spacing: -2.2px;
+color: #241624;
+font-weight: 700;
+text-decoration: none solid rgb(68, 68, 68);
+font-style: normal;
+font-variant: normal;
+text-transform: none;
+}
+
+h1{
+font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+font-size: 25px;
+letter-spacing: 0.4px;
+word-spacing: -1.2px;
+color: #241624;
+font-weight: 700;
+text-decoration: none solid rgb(68, 68, 68);
+font-style: italic;
+font-variant: normal;
+text-transform: none;
+padding-left:0%;
+}
+
+
+button {
+  backface-visibility: hidden;
+  position: relative;
+  cursor: pointer;
+  display: inline-block;
+  white-space: nowrap;
+  background: #9ba1a3;
+  border-radius: 20px;
+  border: 0px solid #9c8f90;
+  border-width: 0px 0px 5px 0px;
+  padding: 9px 15px 6px 15px;
+  box-shadow: inset 0px 1px 3px rgba(255,255,255,.4);
+  color: #fff;
+  font-size: initial;
+  font-family: Arial;
+  font-weight: 900;
+  font-style: normal
+  }
+
+button > div {
+    color: #999;
+  font-size: 10px;
+  font-family: Helvetica Neue;
+  font-weight: initial;
+  font-style: normal;
+  text-align: center;
+  margin: 0px 0px 0px 0px
+  }
+
+button > i {
+  color: #fff;
+  font-size: 1em;
+  background: rgba(0,0,0,0.2);
+  border-radius: 100px;
+  border: 0px solid transparent;
+  border-width: 0px 0px 0px 0px;
+  padding: 5px 5px 5px 5px;
+  margin: 0px 0px 0px 10px;
+  position: static;
+  box-shadow: inset 0px 1px 2px rgba(0,0,0,0.4),inset 0px -1px 0px rgba(255,255,255,.5)
+  }
+
+  .button > .ld {
+    font-size: initial
+  }
+
+
+#gen{
+margin-left:5%;
+margin-right:10%;
+padding-top:20px;
+}
+
+
+.table_sort table {
+    border-collapse: collapse;
+}
+
+.table_sort thead {
+    border-collapse: collapse;
+    background: #2f3e3ed9;
+}
+
+.table_sort th {
+    color: #ffebcd;
+    background: #2f3e3e94;
+    cursor: pointer;
+}
+
+.table_sort td,
+.table_sort th {
+    width: 1000px;
+    height: 40px;
+    text-align: center;
+
+}
+
+.table_sort tbody tr:nth-child(even) {
+    background: #2f3e3e94;
+}
+
+th.sorted[data-order="1"],
+th.sorted[data-order="-1"] {
+    position: relative;
+}
+
+th.sorted[data-order="1"]::after,
+th.sorted[data-order="-1"]::after {
+    right: 8px;
+    position: absolute;
+}
+
+th.sorted[data-order="-1"]::after {
+	content: "▼"
+}
+
+th.sorted[data-order="1"]::after {
+	content: "▲"
+}
+
+#book_detail{
+    padding:10px;
+    padding-left:5%;
+    width:50%;
+    margin-left:10%;
+    margin-top:20px;
+    color:white;
+    font-size:25px;
+    background: #2f3e3e94;
+}
+
+#navigation{
+display:flex;
+}
+
+#all_book{
+
+    padding-left:5%;
+    padding-bottom:5%;
+    width:60%;
+    margin-left:10%;
+    margin-top:20px;
+    color:white;
+    font-size:16px;
+    background: #2f3e3e94;
+}
+
+label{
+color:white;
+}
+
+input[type="file"]{
+backface-visibility: hidden;
+  position: relative;
+  cursor: pointer;
+  display: inline-block;
+  white-space: nowrap;
+  background: #9ba1a3;
+  border-radius: 20px;
+  border: 0px solid #9c8f90;
+  border-width: 0px 0px 5px 0px;
+  padding: 9px 15px 6px 15px;
+  box-shadow: inset 0px 1px 3px rgba(255,255,255,.4);
+    color: #fff;
+  font-size: initial;
+  font-family: Arial;
+  font-weight: 900;
+  font-style: normal
+}
+
+
+li {
+    list-style-type: none; /* Убираем маркеры */
+}
+
+ul {
+    margin-left: 0; /* Отступ слева в браузере IE и Opera */
+    padding-left: 0; /* Отступ слева в браузере Firefox, Safari, Chrome */
+}
+
+.errorlist{
+color:red;
+font-size:16px;
+font-family: sans-serif;
+}
+
+#auth{
+    padding:10px;
+    padding-left:5%;
+    width:50%;
+    margin-left:25%;
+    margin-top:20px;
+    color:white;
+    font-size:25px;
+    background: #2f3e3e94;
+}
+
+#error{
+
+color:red;
+font-size:16px;
+font-family: sans-serif;
+
+}
+
+
+#all_clients{
+
+    padding-left:2%;
+    padding-right:2%;
+    padding-bottom:5%;
+    width:50%;
+    margin-left:25%;
+    margin-top:20px;
+    color:white;
+    font-size:16px;
+    background: #2f3e3e94;
+}
+
+
+#create_user{
+    padding:10px;
+    padding-left:5%;
+    width:50%;
+    margin-left:20%;
+    margin-top:20px;
+    color:white;
+    font-size:25px;
+    background: #2f3e3e94;
+}
+
+form p{
+    color:white;
+    font-size:16px;
+}
+#reg_form p {
+    color:white;
+    font-size:16px;
+}

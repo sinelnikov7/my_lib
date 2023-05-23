@@ -1,0 +1,18 @@
+{% extends 'main.html' %}
+{% block title %}Добавление жанра{% endblock %}
+{% block content %}
+
+
+<div id="create_user">
+    <div id="gen">
+        <h1>Регистрация читателя:</h1>
+        <div>
+            <form id="reg_form" method="POST" action="">
+                {% csrf_token %}
+                {{ form.as_p }}<br>
+                <button>Регистрация</button>
+                <input type="reset">
+            </form>
+            </form></div></div></div>
+
+        {% endblock %}

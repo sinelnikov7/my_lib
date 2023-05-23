@@ -1,0 +1,47 @@
+{% extends 'main.html' %}
+{% block title %}Книги{% endblock %}
+{% block content %}
+
+<div id="navigation">
+    <div>
+        <p><a href="{% url 'book:add_genres' %}">Добавить жанр</a></p>
+        <p><a href="{% url 'book:add_authors' %}">Добавить автора</a></p>
+        <p><a href="{% url 'book:add_book' %}">Добавить книгу</a></p>
+    </div>
+    <div id="all_book">
+        <div id="gen">
+            <form action="{% url 'book:get_book' %}" method="GET">
+                {% csrf_token %}
+                <p>Поиск книг по имени:<input type="text" name="book" placeholder="Введите название книги">&#160;&#160;&#160;<button>Найти</button></p>
+            </form>
+            <h1>Все книги:</h1>
+            <table class="table_sort">
+                <thead>
+                <tr>
+                    <th>Наименование</th>
+                    <th>Жанр</th>
+                    <th>Год выпуска</th>
+                    <th>Общее количество экземпляров</th>
+                    <th>Доступно в данный момент</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for book in books %}
+                <tr>
+                    <th><a href="{% url 'book:book_detail' book.id %}" id="a_detail">{{ book.name_r }}</a></th>
+                    <th> {% for genre in book.genres.all %}
+                        {{ genre.genre }}<br>
+                        {% endfor %}
+                    </th>
+                    <th>{{ book.year_of_made }}</th>
+                    <th>{{ book.count }}</th>
+                    <th>{{ book.count_now }}</th>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+            {{ book.count_now }}
+        </div>
+    </div></div>
+
+    {% endblock %}

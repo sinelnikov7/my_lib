@@ -1,0 +1,65 @@
+{% extends 'main.html' %}
+{% block title %}Книги{% endblock %}
+{% block content %}
+
+<div id="all_book">
+        <div id="gen">
+            <form action="{% url 'take_return_book:search_take' %}" method="POST">
+                {% csrf_token %}
+                <p>Поиск выдачи по имени читателя:<input type="text" name="firstName" placeholder="Введите имя читателя">&#160;&#160;&#160;
+                    <input type="text" name="lastName" placeholder="Введите фамилию читателя"><button>Найти</button></p>
+            </form>
+            <h1>Все выдачи:</h1>
+            <table class="table_sort">
+                <thead>
+                <tr>
+                    <th>Номер выдачи</th>
+                    <th>Читатель</th>
+                    <th>Должен вернуть</th>
+                    <th>Изначально взял</th>
+                    <th>Дней использования изначально</th>
+                    <th>Статус использования</th>
+                    <th>Дата выдачи</th>
+                </tr>
+                </thead>
+                {% if all_take %}
+                {% for order in all_take %}
+                <tr>
+                    <th>{{ order.id }}</th>
+                    <th><a  href="{% url 'take_return_book:order_edit' order.id %}" id="a_detail">{{ order.client }}</a></th>
+
+                    <th>
+                        {% if order.booksMustReturn.all|length == 0  %}
+                        Ничего не должен
+                        {% else %}
+                        {% for i in order.booksMustReturn.all %}
+                        {{ i.name_r }}<br>
+                        {% endfor %}
+                        {% endif %}
+                    </th>
+                    <th>
+                        {% for i in order.booksGot.all %}
+                        {{ i.name_r }}<br>
+                        {% endfor %}
+                    </th>
+                    <th>{{ order.count_of_day }}</th>
+                    {% if order.client.canGet == False %}
+                    {% if order.count_of_day < order.diff_date_plus %}
+                    <th>Просрочено дней - {{ order.diff_date_minus | add:order.count_of_day | cut:"-" }} </th>
+                    {% else %}
+                    <th>Осталось дней - {{ order.diff_date_minus | add:order.count_of_day  }}</th>
+                    {% endif %}
+                    {% else %}
+                     <th> {{ order.status }}</th>
+                    {% endif %}
+                    <th>{{ order.today_date }}</th>
+                </tr>
+                {% endfor %}
+            </table>
+            {% else %}
+            <h1>{{ not_found }}</h1>
+            {% endif %}
+        </div>
+    </div>
+
+{% endblock %}
